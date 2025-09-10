@@ -1,4 +1,10 @@
-🌐 Bhasha-Arogya: Cross-Language Health Bridge
+# 🌐 Bhasha-Arogya: Cross-Language Health Bridge  
+
+*Breaking healthcare language barriers, one symptom at a time.*  
+
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)  
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)  
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)  
 
 Breaking healthcare language barriers, one symptom at a time.
 
@@ -157,8 +163,8 @@ This project is licensed under the MIT License. See the LICENSE file.
 👨‍💻 Authors
 
 Baishakhi Sing
-Linkedin: LinkedIn
-
+Email:baishakhi.sing154@gmail.com
 Srizoni Maity
-GitHub: srizoni-maity
-LinkedIn: Srizoni Maity
+Email:im.srizoni@gmail.com
+
+
