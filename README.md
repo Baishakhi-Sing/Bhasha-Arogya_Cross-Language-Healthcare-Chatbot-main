@@ -6,7 +6,6 @@
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)  
 ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)  
 
-Breaking healthcare language barriers, one symptom at a time.
 
 
 
@@ -166,5 +165,6 @@ Baishakhi Sing
 Email:baishakhi.sing154@gmail.com
 Srizoni Maity
 Email:im.srizoni@gmail.com
+
 
 
