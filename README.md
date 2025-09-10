@@ -1,202 +1,164 @@
-#  Bhasha-Arogya: Cross-Language Health Bridge 🩺
+🌐 Bhasha-Arogya: Cross-Language Health Bridge
 
-Breaking language barriers in healthcare, one symptom at a time.
-
-https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi
-
-https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-
-https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white
+Breaking healthcare language barriers, one symptom at a time.
 
 
 
-🌟 The Problem & Our Solution
-
-Millions are left behind in healthcare due to language barriers. A patient describing symptoms in their native Bengali often gets lost in translation before reaching a doctor.
-
-Bhasha-Arogya (Language-Health) is an AI-powered prototype designed to be that crucial bridge. It captures nuanced, village-level Bengali symptom descriptions and translates them into structured clinical data for doctors, ensuring nothing gets lost.
-
-⚠ Critical Disclaimer: This is a prototype for demonstration and research purposes only. It is NOT a certified medical device and should NEVER be used as a substitute for professional diagnosis, advice, or treatment.
 
 
-🚀 Key Features
 
-Feature	Description	Impact :
+🩺 Why This Matters
 
-🧠 Intelligent Symptom Parsing	NLP-powered extraction of symptoms, severity, duration, and potential red flags from colloquial Bengali.	Turns unstructured patient language into actionable, structured data.
+Language divides often cost lives. A villager in rural Bengal describing “আমার বুক ধড়ফড় করছে” may not be fully understood by an English-speaking doctor.
 
-🚨 Red Flag Detection	Automatically highlights urgent warning signs (e.g., "shosh hoye jacche" - severe dehydration) for immediate attention.	Prioritizes critical cases and alerts clinicians.
+Bhasha-Arogya bridges this gap. It’s an AI-driven health assistant that:
 
-💊 AI-Powered OTC Suggestions	Leverages OpenAI GPT to generate safe, general-purpose over-the-counter medicine advice. Clearly labels it as non-prescriptive.	Provides educational context for common, minor ailments.
+Transforms colloquial Bengali symptom descriptions into structured, doctor-friendly data
 
-🔄 Doctor-Patient Translation	Converts complex English doctor instructions back into simple, understandable Bengali for the patient.	Closes the communication loop and improves health literacy.
+Highlights critical red flags automatically
 
+Offers safe, general OTC guidance with disclaimers
 
-## Tech Stack
-Backend API: Python + FastAPI (High-performance, async-ready)
+Translates doctor’s instructions back into simple Bengali
 
-Frontend UI: React (with TypeScript for type safety)
+⚠️ Important Note: This is a prototype intended for research & demonstration. It is not a certified medical product and must not replace professional diagnosis or treatment.
 
-AI & NLP: OpenAI GPT API + Custom Bengali regex/lexicon mappers
+✨ Core Features
+Feature	What it Does	Why it Matters
+🧠 Symptom Understanding	Extracts symptom, severity, duration, red flags from Bengali free text	Turns messy patient input into structured medical data
+🚨 Red Flag Alerts	Detects urgent signals like severe dehydration or chest pain	Helps clinicians prioritize emergency cases
+💊 AI OTC Suggestions	GPT-based, non-prescriptive general advice for minor issues	Provides patients with safe, educational next steps
+🔄 Doctor ↔ Patient Translation	Converts medical English advice into simple Bengali	Builds trust and health literacy
+🛠️ Tech Stack
 
-Authentication: (Optional) JWT / OAuth2
+Backend: Python + FastAPI (async-ready APIs)
 
+Frontend: React + TypeScript
 
-⚡ Quick Start :
+AI/NLP: OpenAI GPT API + Bengali regex/lexicon parsers
 
+Auth (Optional): JWT / OAuth2
+
+⚡ Getting Started
 Prerequisites
 
 Python 3.9+
 
 Node.js & npm
 
-An OpenAI API key
+OpenAI API Key
+
+1. Clone the Repo
+git clone https://github.com/<your-username>/cross-language-healthbot.git
+cd cross-language-healthbot
+
+2. Backend Setup
+cd backend
+pip install -r requirements.txt
+
+# Set your OpenAI Key
+# macOS/Linux
+export OPENAI_API_KEY="your_key_here"
+# Windows
+setx OPENAI_API_KEY "your_key_here"
+
+# Run FastAPI
+uvicorn app.main:app --reload --port 8000
 
 
-1. Clone & Setup :
-   git clone https://github.com/<your-username>/cross-language-healthbot.git
-   
-   cd cross-language-healthbot
-   
-2. Backend Setup :
-   
-   cd backend
-   
-   pip install -r requirements.txt
-   
-   ### Set your API Key (Unix/macOS)
-   
-   export OPENAI_API_KEY="your_key_here"
-   
-   #### For Windows (Command Prompt)
-   
-   setx OPENAI_API_KEY "your_key_here"
-   
-   #### Start the server
-   
-    uvicorn app.main:app --reload --port 8000
-   
-API docs will be live at: http://localhost:8000/docs
+API Docs → http://localhost:8000/docs
+
+3. Frontend Setup
+cd ../frontend
+npm install
+npm start
 
 
-3. Frontend Setup :
-   
-   cd ../frontend
-   
-   npm install
-   
-   npm start
-   
-The app will be live at: http://localhost:3000
+App UI → http://localhost:3000
 
+👩‍⚕️ End-to-End User Journey
 
+Patient describes symptoms in Bengali:
+"আমার পেটে খুব ব্যথা, বমি হচ্ছে, জ্বর গতকাল থেকে।"
 
-📖 How It Works: The User Journey
+Backend parses & structures data:
 
-1. Patient Input: A user describes their symptoms in natural Bengali:
-   "আমার পেটে খুব ব্যথা, বমি বমি লাগছে, এবং জ্বর হয়েছে গতকাল থেকে।" 
-
-2. Structuring & Analysis: Our backend parses this into:
 {
-
-  "symptoms": ["abdominal pain", "nausea", "fever"],
-  
+  "symptoms": ["abdominal pain", "vomiting", "fever"],
   "severity": "severe",
-  
   "duration": "1 day",
-  
   "red_flags": []
-  
 }
 
-3. AI Suggestion: GPT suggests general OTC advice (e.g., hydration, rest, common antacids) with clear disclaimers.
-   
-4. Doctor's Turn: A doctor reviews the structured data, makes a diagnosis, and types advice in English.
-   
-5. Closing the Loop: The doctor's advice is translated back into simple Bengali for the patient to understand.
 
-   
+AI Suggestion: Rest, hydration, OTC paracetamol (with disclaimers).
 
-🧪 Example API Flow :
+Doctor enters English advice → system translates to Bengali for patient clarity.
+
+🔌 Example API
 
 Endpoint: POST /api/parse-symptoms
 
-Request (Bengali Text): 
+Request:
 
 {
   "text": "মাথা ব্যাথা এবং সারা শরীরে জ্বর আছে।"
-  
 }
 
-Response (Structured JSON):
+
+Response:
 
 {
   "structured_data": {
-  
     "symptoms": ["headache", "fever"],
-    
     "severity": "mild",
-    
     "duration": "unknown",
-    
     "red_flags": []
-    
   },
-  
-  "ai_advice": "For general headache and fever, rest and hydration are recommended. Over-the-counter pain relievers like paracetamol may help. Consult a doctor if symptoms worsen.",
-  
-  "translated_advice": "মাথাব্যথা এবং জ্বরের জন্য বিশ্রাম এবং জলখাবার সুপারিশ করা হয়। প্যারাসিটামলের মতো ওভার-দ্য-কাউন্টার ব্যথানাশক সাহায্য করতে পারে। লক্ষণগুলি খারাপ হলে একজন ডাক্তারের সাথে পরামর্শ করুন।"
-  
+  "ai_advice": "For headache and fever, rest and hydration are recommended. Paracetamol may help. See a doctor if symptoms worsen.",
+  "translated_advice": "মাথাব্যথা এবং জ্বরের জন্য বিশ্রাম এবং জলখাবার সুপারিশ করা হয়। প্যারাসিটামল সাহায্য করতে পারে। উপসর্গ খারাপ হলে ডাক্তার দেখান।"
 }
 
-
-📂 Project Structure :
+📂 Project Layout
 cross-language-healthbot/
-├── 📁 backend/
+├── backend/
 │   ├── app/
-│   │   ├── main.py          # FastAPI app root
-│   │   ├── models.py        # Pydantic models
-│   │   ├── nlpparser.py     # Core Bengali NLP logic
-│   │   └── ai_helper.py     # OpenAI GPT integration
+│   │   ├── main.py          # FastAPI entrypoint
+│   │   ├── models.py        # Data models
+│   │   ├── nlpparser.py     # Bengali NLP parsing
+│   │   └── ai_helper.py     # GPT integration
 │   ├── requirements.txt
 │   └── README.md
-└── 📁 frontend/
+└── frontend/
     ├── src/
-    │   ├── components/      # React components
+    │   ├── components/      
     │   └── App.tsx
     ├── package.json
     └── README.md
 
 🤝 Contributing
 
-We welcome contributions! Please feel free to submit issues, fork the repository, and create pull requests. Let's make healthcare more accessible together.
+Want to help break healthcare language barriers? Contributions welcome!
 
-1. Fork the Project
-   
-2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
-   
-3. Commit your Changes (git commit -m 'Add some AmazingFeature')
-   
-4. Push to the Branch (git push origin feature/AmazingFeature)
-   
-5. Open a Pull Request
-   
+Fork the repo
 
-**📜 License
+Create a branch: git checkout -b feature/MyFeature
 
-Distributed under the MIT License. See LICENSE file for more information.
+Commit: git commit -m 'Add my feature'
 
+Push: git push origin feature/MyFeature
 
-👨‍💻 Author
+Open a PR
 
-Srizoni Maity
+📜 License
+
+This project is licensed under the MIT License. See the LICENSE file.
+
+👨‍💻 Authors
 
 Baishakhi Sing
+Linkedin: LinkedIn
 
-GitHub: [https://github.com/srizoni-maity]
-
-LinkedIn: [https://www.linkedin.com/in/srizoni-maity-012235356]**
-
-
-If this project inspires you, give it a ⭐!
-
+Srizoni Maity
+GitHub: srizoni-maity
+LinkedIn: Srizoni Maity
